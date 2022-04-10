@@ -1,0 +1,51 @@
+<plugin>
+    <script>
+        import {
+            map
+        } from '@windy/map';
+
+        let openseaLayer = null;
+
+        let latlng = [43.826, 15.585]
+
+        let hasHooks = false;
+
+        let is_devel_mode = true;
+
+        if (is_devel_mode === false) {
+            console.log = function() {};
+        }
+
+        this.onopen = () => {
+            console.log('onopen', hasHooks);
+
+            if (hasHooks) {
+                return;
+            }
+
+            let url = 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png';
+
+            openseaLayer = L.tileLayer(url, {
+                foo: 'bar',
+                minZoom: 9,
+                attribution: '&copy; <a href="https://openseamap.org/">OpenSeaMap</a>'
+            }).addTo(map);
+
+            if (latlng) {
+                map.setView(latlng, 12);
+            }
+
+            hasHooks = true;
+        };
+
+        this.onclose = () => {
+            console.log('onclose', hasHooks)
+
+            if (openseaLayer) {
+                map.removeLayer(openseaLayer);
+            }
+
+            hasHooks = false;
+        };
+    </script>
+</plugin>

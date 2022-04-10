@@ -1,0 +1,13 @@
+dev/*
+docs/*
+examples/*
+proxy/*
+src/*
+test/*
+compiler.js
+.editorconfig
+.eslintrc.json
+.git
+.gitignore
+.npmignore
+
