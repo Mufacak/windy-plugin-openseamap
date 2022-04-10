@@ -31,7 +31,7 @@
                 attribution: '&copy; <a href="https://openseamap.org/">OpenSeaMap</a>'
             }).addTo(map);
 
-            if (latlng) {
+            if (is_devel_mode && latlng) {
                 map.setView(latlng, 12);
             }
 
