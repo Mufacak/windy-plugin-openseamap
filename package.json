@@ -1,7 +1,7 @@
 {
     "name": "windy-plugin-openseamap",
     "version": "0.1.0",
-    "description": "Windy plugin for OpenSeaMap Tiles.",
+    "description": "Windy plugin for displaying nautical marks from OpenSeaMap.",
     "main": "dist/plugin.js",
     "scripts": {
         "start": "node ./compiler.js --build --watch --prompt --serve --transpile",
