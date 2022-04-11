@@ -6,13 +6,13 @@
 
         let openseaLayer = null;
 
-        let latlng = [43.826, 15.585]
+        let defLatLon = [43.826, 15.585]
 
         let hasHooks = false;
 
-        let is_devel_mode = true;
+        let isDevelMode = false;
 
-        if (is_devel_mode === false) {
+        if (isDevelMode === false) {
             console.log = function() {};
         }
 
@@ -23,16 +23,16 @@
                 return;
             }
 
-            let url = 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png';
+            let openseaUrl = 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png';
 
-            openseaLayer = L.tileLayer(url, {
+            openseaLayer = L.tileLayer(openseaUrl, {
                 foo: 'bar',
                 minZoom: 9,
                 attribution: '&copy; <a href="https://openseamap.org/">OpenSeaMap</a>'
             }).addTo(map);
 
-            if (is_devel_mode && latlng) {
-                map.setView(latlng, 12);
+            if (isDevelMode && defLatLon) {
+                map.setView(defLatLon, 12);
             }
 
             hasHooks = true;
