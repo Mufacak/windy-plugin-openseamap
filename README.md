@@ -14,10 +14,10 @@ Nautical markers are displayed from zoom level 9.
 ## Screenshots
 
 ### Wider view
-![Windy with OpenSeaMap](screen-i.png)
+![Windy with OpenSeaMap](screen-i.jpg)
 
 ### Detailed view
-![Windy with OpenSeaMap](screen-ii.png)
+![Windy with OpenSeaMap](screen-ii.jpg)
 
 ## Changelog
 ### V0.1.0
