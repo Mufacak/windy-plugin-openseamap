@@ -1,6 +1,6 @@
 {
     "name": "windy-plugin-openseamap",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Windy plugin for displaying nautical marks from OpenSeaMap.",
     "main": "dist/plugin.js",
     "scripts": {
