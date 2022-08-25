@@ -1,14 +1,13 @@
 <plugin>
     <script>
         //  OpenSeaMap nautical markers for Windy.com
-        //  v0.1.1
-        import {
-            map
-        } from '@windy/map';
+        //  v0.1.2
+        import { map } from '@windy/map';
+        import broadcast from '@windy/broadcast';
 
         let openseaLayer = null;
 
-        let defLatLon = [43.826, 15.585]
+        let defLatLon = [51.569, 2.230]
 
         let hasHooks = false;
 
@@ -17,6 +16,14 @@
         if (isDevelMode === false) {
             console.log = function() {};
         }
+
+        broadcast.on("rqstClose", e => {
+            console.log('rqstClose', e);
+
+            if (e == 'windy-plugin-openseamap') {
+                this.onclose('unmount');
+            }
+        });
 
         this.onopen = () => {
             console.log('onopen', hasHooks);
@@ -34,20 +41,23 @@
             }).addTo(map);
 
             if (isDevelMode && defLatLon) {
-                map.setView(defLatLon, 12);
+                map.setView(defLatLon, 9);
             }
 
             hasHooks = true;
         };
 
-        this.onclose = () => {
-            console.log('onclose', hasHooks)
+        this.onclose = (messages) => {
+            console.log('onclose', hasHooks, messages)
 
-            if (openseaLayer) {
-                map.removeLayer(openseaLayer);
+            if (messages == 'unmount') {
+                if (openseaLayer) {
+                    map.removeLayer(openseaLayer);
+                }
+
+                hasHooks = false;
             }
-
-            hasHooks = false;
         };
+        
     </script>
 </plugin>
