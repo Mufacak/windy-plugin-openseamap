@@ -20,6 +20,9 @@ Nautical markers are displayed from zoom level 9.
 ![Windy with OpenSeaMap](screen-ii.jpg)
 
 ## Changelog
+### V0.1.2
+Fixed an issue where the map would become invisible when measuring distance.
+
 ### V0.1.1
 Readme update
 
